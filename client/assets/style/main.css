@@ -1,0 +1,12 @@
+.grid-container-element {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.grid-child-element {
+    margin: 2px;
+    border: 1px solid black;
+}

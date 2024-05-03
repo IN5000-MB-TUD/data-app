@@ -32,7 +32,17 @@ def get_repository_information(repository_owner: str, repository_name: str):
     repository_full_name = f"{repository_owner}/{repository_name}"
 
     repository = mo.db["repositories_data"].find_one(
-        {"statistics": {"$exists": True}, "full_name": repository_full_name}, {"_id": 0}
+        {"statistics": {"$exists": True}, "full_name": repository_full_name},
+        {
+            "_id": 0,
+            "full_name": 1,
+            "created_at": 1,
+            "description": 1,
+            "forks_count": 1,
+            "open_issues": 1,
+            "stargazers_count": 1,
+            "commits": 1,
+        },
     )
     if not repository:
         raise HTTPException(
